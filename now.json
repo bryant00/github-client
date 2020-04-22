@@ -1,7 +1,7 @@
 {
   "build": {
     "env": {
-      "REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN": "react_app_github_personal_access_token"
+      "REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN": "@react_app_github_personal_access_token"
     }
   }
 }
