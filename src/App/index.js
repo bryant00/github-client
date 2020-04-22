@@ -12,10 +12,10 @@ import './style.css';
 
 class App extends Component {
   state = {
-    organizationName: 'the-road-to-learn-react',
+    organizationName: 'bryant-co',
   };
 
-  onOrganizationSearch = value => {
+  onOrganizationSearch = (value) => {
     this.setState({ organizationName: value });
   };
 
