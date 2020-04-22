@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import Profile from '../Profile';
+import Contributions from '../Contributions';
 import Organization from '../Organization';
 
 import * as routes from '../constants/routes';
@@ -12,7 +13,7 @@ import './style.css';
 
 class App extends Component {
   state = {
-    organizationName: 'bryant-co',
+    organizationName: 'zeit',
   };
 
   onOrganizationSearch = (value) => {
@@ -46,6 +47,15 @@ class App extends Component {
               component={() => (
                 <div className="App-content_small-header">
                   <Profile />
+                </div>
+              )}
+            />
+            <Route
+              exact
+              path={routes.CONTRIBUTIONS}
+              component={() => (
+                <div className="App-content_small-header">
+                  <Contributions />
                 </div>
               )}
             />

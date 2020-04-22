@@ -17,6 +17,9 @@ const Navigation = ({
       <Link to={routes.PROFILE}>Profile</Link>
     </div>
     <div className="Navigation-link">
+      <Link to={routes.CONTRIBUTIONS}>Contributions</Link>
+    </div>
+    <div className="Navigation-link">
       <Link to={routes.ORGANIZATION}>Organization</Link>
     </div>
 
@@ -34,11 +37,11 @@ class OrganizationSearch extends React.Component {
     value: this.props.organizationName,
   };
 
-  onChange = event => {
+  onChange = (event) => {
     this.setState({ value: event.target.value });
   };
 
-  onSubmit = event => {
+  onSubmit = (event) => {
     this.props.onOrganizationSearch(this.state.value);
 
     event.preventDefault();

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 import FetchMore from '../../FetchMore';
-import RepositoryItem from '../RepositoryItem';
+import ContributionsByRepositoryItem from '../ContributionsByRepositoryItem';
 import Issues from '../../Issue';
 
 import '../style.css';
@@ -30,36 +30,24 @@ const getUpdateQuery = (entry) => (
   };
 };
 
-const RepositoryList = ({
-  repositories,
+const ContributionsByRepositoryList = ({
+  contributionsCollection,
   loading,
   fetchMore,
   entry,
 }) => (
   <Fragment>
-    {repositories.edges.map(({ node }) => (
-      <div key={node.id} className="RepositoryItem">
-        <RepositoryItem {...node} />
-
-        <Issues
-          repositoryName={node.name}
-          repositoryOwner={node.owner.login}
-        />
-      </div>
-    ))}
-
-    <FetchMore
-      loading={loading}
-      hasNextPage={repositories.pageInfo.hasNextPage}
-      variables={{
-        cursor: repositories.pageInfo.endCursor,
-      }}
-      updateQuery={getUpdateQuery(entry)}
-      fetchMore={fetchMore}
-    >
-      Repositories
-    </FetchMore>
+    {contributionsCollection.commitContributionsByRepository.map(
+      ({ repository }) => (
+        <div
+          key={repository.name}
+          className="ContributionsByRepositoryItem"
+        >
+          <ContributionsByRepositoryItem {...repository} />
+        </div>
+      ),
+    )}
   </Fragment>
 );
 
-export default RepositoryList;
+export default ContributionsByRepositoryList;
